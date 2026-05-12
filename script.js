@@ -57,6 +57,6 @@ scaleInput.addEventListener('input', (event) => {
 downloadButton.addEventListener('click', () => {
   const link = document.createElement('a');
   link.download = 'composite.png';
-  link.href = canvas.toDataURL();
+  link.href = canvas.toDataURL('image/png');
   link.click();
 });
