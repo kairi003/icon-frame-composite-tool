@@ -7,7 +7,7 @@ const frameInput = document.getElementById('frameInput');
 const iconInput = document.getElementById('iconInput');
 /** @type {HTMLInputElement} */
 const scaleInput = document.getElementById('scaleInput');
-/** @type {HTMLAnchorElement} */
+/** @type {HTMLButtonElement} */
 const downloadButton = document.getElementById('downloadButton');
 
 let frameBitmap = null;
@@ -27,7 +27,6 @@ const updateCanvas = () => {
       ctx.drawImage(iconBitmap, x, y, iconWidth, iconHeight);
     }
     ctx.drawImage(frameBitmap, 0, 0);
-    downloadButton.href = canvas.toDataURL('image/png');
   }
 }
 
@@ -53,4 +52,11 @@ iconInput.addEventListener('change', async (event) => {
 scaleInput.addEventListener('input', (event) => {
   scale = parseFloat(event.target.value);
   updateCanvas();
+});
+
+downloadButton.addEventListener('click', () => {
+  const link = document.createElement('a');
+  link.download = 'composite.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
 });

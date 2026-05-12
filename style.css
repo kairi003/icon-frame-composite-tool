@@ -131,8 +131,7 @@ body {
 }
 
 .download-button {
-    display: inline-block;
-    width: fit-content;
+    width: 100%;
     padding: 14px;
     margin-top: 10px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -144,21 +143,19 @@ body {
     cursor: pointer;
     transition: all 0.3s;
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-    text-decoration: none;
 }
 
-.download-button[href]:hover {
+.download-button:hover:not(:disabled) {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
-.download-button[href]:active {
+.download-button:active:not(:disabled) {
     transform: translateY(0);
 }
 
-.download-button:not([href]) {
+.download-button:disabled {
     background: #ccc;
-    pointer-events: none;
     cursor: not-allowed;
     opacity: 0.6;
 }
